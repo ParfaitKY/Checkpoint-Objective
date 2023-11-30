@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Objective checkpoint</h1>
+    <script>
+      // Algorithme de calcul du produit point (scalaire)
+      function dotProduct(v1, v2) {
+        if (v1.length !== v2.length) {
+          throw new Error("Les vecteurs doivent avoir la même dimension.");
+        }
+        let sum = 0;
+        for (let i = 0; i < v1.length; i++) {
+          sum += v1[i] * v2[i];
+        }
+        return sum;
+      }
+
+      // Algorithme pour déterminer si deux vecteurs de IR sont orthogonaux
+      function areOrthogonal(v1, v2) {
+        return dotProduct(v1, v2) === 0;
+      }
+
+      // Algorithme de tri par insertion
+      function insertionSort(arr) {
+        for (let i = 1; i < arr.length; i++) {
+          let key = arr[i];
+          let j = i - 1;
+          while (j >= 0 && key < arr[j]) {
+            arr[j + 1] = arr[j];
+            j--;
+          }
+          arr[j + 1] = key;
+        }
+        return arr;
+      }
+
+      // Exemple d'utilisation
+      console.log(areOrthogonal([1, 0], [0, 1])); // true
+      console.log(areOrthogonal([1, 2], [3, 6])); // false
+
+      let arr = [12, 11, 13, 5, 6];
+      console.log("Tableau initial :", arr);
+      console.log("Tableau trié :", insertionSort(arr));
+    </script>
+  </body>
+</html>
